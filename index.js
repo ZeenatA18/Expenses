@@ -14,7 +14,7 @@ if (process.env.DATABASE_URL && !local) {
     useSSL = true;
 }
 
-const DATABASE_URL = process.env.DATABASE_URL || 'postgresql://<user>:<password>@localhost:5432/<databasename>';
+const DATABASE_URL = process.env.DATABASE_URL || 'postgresql://postgres:pg123@localhost:5432/expenses_app';
 
 const config = {
     connectionString: DATABASE_URL,
@@ -49,7 +49,21 @@ app.get('/',  async function (req, res) {
     })
 })
 
+app.post('/register', async function (req,res){
+    let user = req.body.firstname
 
+    if(user != null){
+        await expenses_instance.storedNames(user)
+    }
+
+    var username = await expenses_instance.greet(user)
+    // console.log(username)
+   
+    res.render('category',{
+        uname: username.firstname
+    })
+
+})
 
 
 
