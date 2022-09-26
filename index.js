@@ -65,6 +65,22 @@ app.post('/register', async function (req,res){
 
 })
 
+app.post('/category/:username', async function (req,res){
+    let expenses1 = req.body.expenses
+
+    let username = req.params.username
+// console.log(available_days)
+
+   if(expenses !== null){
+    await expenses_instance.expenses_data(username, expenses1)
+   }
+
+   
+    res.render('category',{
+        uname: username
+    })
+})
+
 
 
 const PORT = process.env.PORT || 3030;

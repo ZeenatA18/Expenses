@@ -12,7 +12,30 @@
 <body>
     <h1>Category</h1>
     <form action="/category/{{uname}}" method="post">
-    
+
+        <label for="expenses">Choose your expenses:</label>
+        <br><br>
+        <div class="expenses">
+            <input type="radio" class="radio" name="expenses" value="travel"> Travel <br>
+            <input type="radio" class="radio" name="expenses" value="food"> Food <br>
+            <input type="radio" class="radio" name="expenses" value="toiletries"> Toiletries <br>
+            <input type="radio" class="radio" name="expenses" value="data"> Data <br>
+        </div>
+        <br><br>
+
+        <input size="30" type="text" name="cost" class="enterCost" value="" placeholder="Enter cost here">
+        <br><br>
+
+        <input type="date">
+        <br><br>
+
+        <button type="submit"> Submit </button>
+
+        <br><br>
+
+        <button type="submit"> View Total Weekly </button>
+
+
     </form>
 </body>
 
