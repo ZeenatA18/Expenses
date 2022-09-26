@@ -16,27 +16,6 @@ module.exports = function expenses(db) {
         return currentName
     }
 
-    // async function schedule(user, daysofweek) {
-
-    //     let day = Array.isArray(daysofweek) === false ? [daysofweek] : daysofweek
-    //     // console.log(day)
-
-    //     for (let i = 0; i < day.length; i++) {
-    //         // for (let v = 0; v < user.length; i++) {
-    //         const days = day[i]
-    //         const worker = user
-    //         //    console.log(days)
-
-    //         let weekday_id = await db.one('SELECT id from weekday_key WHERE weekdays=$1', [days])
-    //         console.log("day id",weekday_id)
-
-    //         let waiters_id = await db.one('SELECT id from waiters_key WHERE waiters=$1', [worker])
-    //         console.log("user id",waiters_id)
-    //         await db.none('INSERT INTO schedule(waiters_id, weekday_id) values($1, $2)', [waiters_id.id, weekday_id.id]);
-    //         // }
-    //     }
-    // }
-
     async function expenses_data(fname, expense, cost, date) {
         // console.log(regNumbers)
         let users_id = await db.one('SELECT id from users_key WHERE firstname=$1', [fname])
