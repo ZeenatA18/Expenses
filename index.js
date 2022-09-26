@@ -77,10 +77,10 @@ console.log(cost)
 let date = req.body.date
 console.log(date)
 
-//    if(expenses1 !== null){
+   if(cost & date != null){
     await expenses_instance.expenses_data(username, expenses1, cost, date)
     console.log( await expenses_instance.expenses_data(username, expenses1, cost, date))
-//    }
+   }
 
    
     res.render('category',{
@@ -88,7 +88,13 @@ console.log(date)
     })
 })
 
+app.get('/reset',async function (req,res){
 
+    await expenses_instance.reset();
+
+    res.redirect('/')
+
+})
 
 const PORT = process.env.PORT || 3030;
 

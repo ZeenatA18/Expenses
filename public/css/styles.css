@@ -21,6 +21,16 @@ input[type=text], input[type=password] {
     cursor: pointer;
     width: 100%;
   }
+
+  .reset {
+    background-color: rgb(216, 52, 52);
+    color: white;
+    /* padding: 14px 20px; */
+    margin: 8px 0;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+  }
   
   .container {
     padding: 16px;
