@@ -67,13 +67,20 @@ app.post('/register', async function (req,res){
 
 app.post('/category/:username', async function (req,res){
     let expenses1 = req.body.expenses
-
+console.log(expenses1)
     let username = req.params.username
-// console.log(available_days)
+console.log(username)
 
-   if(expenses !== null){
-    await expenses_instance.expenses_data(username, expenses1)
-   }
+let cost = req.body.cost
+console.log(cost)
+
+let date = req.body.date
+console.log(date)
+
+//    if(expenses1 !== null){
+    await expenses_instance.expenses_data(username, expenses1, cost, date)
+    console.log( await expenses_instance.expenses_data(username, expenses1, cost, date))
+//    }
 
    
     res.render('category',{
