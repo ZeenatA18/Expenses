@@ -4,6 +4,8 @@ const bodyParser = require('body-parser');
 const flash = require('express-flash');
 const session = require('express-session');
 const app = express();
+
+const expenses = require('./expenses.ff');
 const pgp = require('pg-promise')();
 
 let useSSL = false;
@@ -39,3 +41,20 @@ app.use(express.static('public'));
 app.use(bodyParser.urlencoded({ extended: false }))
 app.use(bodyParser.json())
 app.use(flash());
+
+app.get('/',  async function (req, res) {
+   
+    res.render('index', {
+       
+    })
+})
+
+
+
+
+
+const PORT = process.env.PORT || 3030;
+
+app.listen(PORT, function () {
+    console.log("App started at port:", PORT)
+});
