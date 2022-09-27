@@ -19,8 +19,8 @@ CREATE TABLE expense(
     id SERIAL NOT NULL PRIMARY KEY,
     users_id integer not null,
     category_id integer not null,
-    cost VARCHAR(30) NOT NULL,
-    date VARCHAR(30) NOT NULL,
+    cost float not null,
+    dates date,
     foreign key (users_id) references users_key(id),
     foreign key (category_id) references category_key(id)
 

@@ -42,53 +42,53 @@ app.use(bodyParser.urlencoded({ extended: false }))
 app.use(bodyParser.json())
 app.use(flash());
 
-app.get('/',  async function (req, res) {
-   
+app.get('/', async function (req, res) {
+
     res.render('index', {
-       
+
     })
 })
 
-app.post('/register', async function (req,res){
+app.post('/register', async function (req, res) {
     let user = req.body.firstname
 
-    if(user != null){
+    if (user != null) {
         await expenses_instance.storedNames(user)
     }
 
     var username = await expenses_instance.greet(user)
     // console.log(username)
-   
-    res.render('category',{
+
+    res.render('category', {
         uname: username.firstname
     })
 
 })
 
-app.post('/category/:username', async function (req,res){
+app.post('/category/:username', async function (req, res) {
     let expenses1 = req.body.expenses
-console.log(expenses1)
+    console.log(expenses1)
     let username = req.params.username
-console.log(username)
+    console.log(username)
 
-let cost = req.body.cost
-console.log(cost)
+    let cost = req.body.cost
+    console.log(cost)
 
-let date = req.body.date
-console.log(date)
+    let date = req.body.date
+    console.log(date)
 
-   if(cost & date != null){
-    await expenses_instance.expenses_data(username, expenses1, cost, date)
-    console.log( await expenses_instance.expenses_data(username, expenses1, cost, date))
-   }
+    // if (cost & date != null) {
+        await expenses_instance.expenses_data(username, expenses1, cost, date)
+        // console.log(await expenses_instance.expenses_data(username, expenses1, cost, date))
+    // }
 
-   
-    res.render('category',{
+
+    res.render('category', {
         uname: username
     })
 })
 
-app.get('/reset',async function (req,res){
+app.get('/reset', async function (req, res) {
 
     await expenses_instance.reset();
 

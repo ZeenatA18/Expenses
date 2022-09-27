@@ -23,10 +23,14 @@ module.exports = function expenses(db) {
         let category_id = await db.one('SELECT id from category_key WHERE category=$1', [expense])
         console.log(category_id)
 
-        if (cost & date != null) {
-            await db.none('INSERT INTO expense(users_id, category_id, cost, date) values($1, $2, $3, $4)', [users_id.id, category_id.id, cost, date]);
-        console.log(await db.none('INSERT INTO expense(users_id, category_id, cost, date) values($1, $2, $3, $4)', [users_id.id, category_id.id, cost, date]))
-        }
+        // if (cost & date != null) {
+            await db.none('INSERT INTO expense(users_id, category_id, cost, dates) values($1, $2, $3, $4)', [users_id.id, category_id.id, cost, date]);
+        // console.log(await db.none('INSERT INTO expense(users_id, category_id, cost, dates) values($1, $2, $3, $4)', [users_id.id, category_id.id, cost, date]))
+        // }
+    }
+
+    async function get_data(){
+        
     }
 
     async function reset() {
