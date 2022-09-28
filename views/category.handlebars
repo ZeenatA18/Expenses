@@ -33,18 +33,23 @@
 
         <br><br>
 
-        <button type="submit"> View Total Weekly </button>
-        <br><br>
-
-
-
     </form>
 
-    {{!-- <form action="/reset" method="get" class="reset"> --}}
-        {{!-- <label> --}}
-            {{!-- <input type="RESET" name="RESET" class="reset"> --}}
-        {{!-- </label> --}}
-    {{!-- </form> --}}
+  <button type="submit"> <a href="/expenses/{{uname}}">View Current Total</a></button> 
+
+{{!-- <form action="/expenses/{{uname}}" method="get">
+
+<button type="submit"><a href=""></a> View Total Weekly </button>
+        <br><br>
+
+</form> --}}
+
+
+    <form action="/reset" method="get" class="reset"> 
+        
+            <button type="submit" name="RESET" class="reset"> reset</button>
+        
+    </form>
 </body>
 
 

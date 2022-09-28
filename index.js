@@ -88,6 +88,25 @@ app.post('/category/:username', async function (req, res) {
     })
 })
 
+app.get('/expenses/:username', async function (req, res) {
+    let username = req.params.username
+    let total = await expenses_instance.total(username);
+
+    let output = `${username} your current total expenses is R${total.sum}.`
+    console.log(total.sum)
+    // let thesum = output.sum;
+    // console.log(thesum)
+    let expenses = await expenses_instance.get_data(username);
+    res.render('expenses',{
+       username,
+        output,
+         expenses
+    })
+
+})
+
+
+
 app.get('/reset', async function (req, res) {
 
     await expenses_instance.reset();

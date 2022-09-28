@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/styles.css">
+    <title></title>
+</head>
+
+<body>
+
+
+    <form action="/user_expenses/{{uname}}" method="post">
+
+        <h2>Total for the week</h2>
+        <div class="user_data">
+            <p> {{output}} </p>
+        </div>
+
+         {{!-- <div class="container" style="background-color:#f1f1f1">
+                    <button type="button" onclick="document.getElementById('idexpenses').style.display='none'"
+                        class="showbtn">Show Expenses</button>
+                </div> --}}
+
+        <div id="idexpenses" class="viewExpenses">
+            {{!-- {{#each expenses}} --}}
+            <p> {{expenses}} </p>
+            {{!-- {{/each}} --}}
+        </div>
+
+    </form>
+
+<button onclick="document.getElementById('idexpenses').style.display='block'" style="width:auto;">Show Expenses</button>
+
+<script>
+      
+        var stuff = document.getElementById('idexpenses');
+
+           window.onclick = function (event) {
+            if (event.target == stuff) {
+                modal.style.display = "none";
+            }
+        }
+    </script>
+
+</body>
+
+</html>

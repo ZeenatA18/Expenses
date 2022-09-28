@@ -1,12 +1,10 @@
-database name => expenses_app
-user => postgres
-pword => pg123
+-- database name => expenses_app
+-- user => postgres
+-- pword => pg123
 
 CREATE TABLE users_key(
     id SERIAL NOT NULL PRIMARY KEY,
-    firstname VARCHAR(30) NOT NULL,
-    lastname VARCHAR(30) NOT NULL,
-    email VARCHAR(30) NOT NULL
+    firstname VARCHAR(30) NOT NULL
    
 );
 
@@ -30,4 +28,3 @@ insert into category_key (category) values('travel');
 insert into category_key (category) values('food');
 insert into category_key (category) values('toiletries');
 insert into category_key (category) values('data');
-
