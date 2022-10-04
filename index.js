@@ -128,7 +128,7 @@ app.post('/category/:theName', async function (req, res) {
 
     if (cost && date && expenses1) {
     await expenses_instance.expenses_data(username, expenses1, cost, date)
-    console.log(await expenses_instance.expenses_data(username, expenses1, cost, date))
+    // console.log(await expenses_instance.expenses_data(username, expenses1, cost, date))
     req.flash('success', "Your expenses has been saved.")
     }
 

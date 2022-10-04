@@ -34,13 +34,13 @@ module.exports = function expenses(db) {
     async function expenses_data(fname, expense, cost, date) {
 
         let users_id = await db.one('SELECT id from users_key WHERE firstname=$1', [fname])
-         console.log(users_id)
+        //  console.log(users_id)
         let category_id = await db.one('SELECT id from category_key WHERE category=$1', [expense])
-        console.log(category_id)
+        // console.log(category_id)
 
         if (cost & date != null) {
        await db.none('INSERT INTO expense(users_id, category_id, cost, dates) values($1, $2, $3, $4)', [users_id.id, category_id.id, cost, date]);
-        console.log(await db.none('INSERT INTO expense(users_id, category_id, cost, dates) values($1, $2, $3, $4)', [users_id.id, category_id.id, cost, date]))
+        // console.log(await db.none('INSERT INTO expense(users_id, category_id, cost, dates) values($1, $2, $3, $4)', [users_id.id, category_id.id, cost, date]))
         }
     }
 
