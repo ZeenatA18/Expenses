@@ -13,11 +13,12 @@ input[type=password] {
   box-sizing: border-box;
 }
 
+
 /* Set a style for all buttons */
 button {
   background-color: #40b78c;
   color: white;
-  padding: 14px 20px;
+  padding: 10px ;
   margin: 8px 0;
   border: none;
   cursor: pointer;
@@ -27,8 +28,8 @@ button {
 .reset {
   background-color: rgb(216, 52, 52);
   color: white;
-  /* padding: 14px 20px; */
-  margin: 8px 0;
+  padding: 0;
+  /* margin: 8px 0; */
   border: none;
   cursor: pointer;
   width: 100%;
@@ -117,8 +118,25 @@ button:hover {
 
 .errorMsg{
   text-align: center;
+  color: red;
+  font-size: larger;
+  font-weight: bolder;
+}
+
+.successMsg{
+  text-align: center;
   color: green;
   font-size: larger;
+  font-weight: bolder;
+}
+
+.category_box{
+  background-color: #40862f;
+  padding: 16px;
+  width: 60%;
+  height: 80%;
+  padding-top: 2px;
+  margin: 5% 5% 5% 15%;
 }
 
 .animate {

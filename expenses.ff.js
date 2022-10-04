@@ -1,17 +1,14 @@
 module.exports = function expenses(db) {
 
     async function storedNames(firstname, lastname, email, password) {
-        let duplicate = await db.oneOrNone('SELECT count(*) FROM users_key WHERE email = $1', [email]);
-
-        if (duplicate == null) {
+       // let duplicates = await duplicate(email)
             await db.none('INSERT INTO users_key(firstname, lastname, email, password) values($1,$2,$3,$4)', [firstname, lastname, email, password]);
-        }
-
+       
     }
 
     async function duplicate(email){
-        let db_results = await db.one('SELECT count(*) FROM users_key WHERE email = $1', [email]);
-        return db_results.count !== 0
+        let db_results = await db.any('SELECT email FROM users_key WHERE email = $1', [email]);
+        return db_results;
     }
 
     async function signin(email, password) {

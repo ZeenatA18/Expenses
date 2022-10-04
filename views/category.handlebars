@@ -1,47 +1,63 @@
 <body>
-    <h1>Category</h1>
 
-    {{#if messages.error}}
-    <div class="errorMsg">{{messages.error}}</div>
-    {{/if}}
+    <script>
+        setTimeout(function () {
+            if (document.querySelector(".errorMsg")) document.querySelector(".errorMsg").innerHTML = "";
+            if (document.querySelector(".successMsg")) document.querySelector(".successMsg").innerHTML = "";
+        }, 5000);
+    </script>
+    <div class="category_box">
+        <h1>Category</h1>
 
-    <form action="/category/{{uname}}" method="post">
+        {{!-- {{#if messages.error}} --}}
+        <div class="errorMsg">{{messages.error}}</div>
+        <div class="successMsg">{{messages.success}}</div>
+        {{!-- {{/if}} --}}
 
-        <label for="expenses">Choose your expenses:</label>
+        <form action="/category/{{uname}}" method="post">
+            <div class="flex">
+                <div>
+                    <label for="expenses"><b>Choose your expenses: </b></label>
+                    <br><br>
+                    <div class="expenses">
+                        <input type="radio" class="radio" name="expenses" value="travel"> Travel <br>
+                        <input type="radio" class="radio" name="expenses" value="food"> Food <br>
+                        <input type="radio" class="radio" name="expenses" value="toiletries"> Toiletries <br>
+                        <input type="radio" class="radio" name="expenses" value="data"> Data <br>
+                    </div>
+                    <br>
+                </div>
+
+                <div class="cost">
+                    <label for="expenses"><b> Enter expenses cost:</b></label>
+                    <input  type="text" name="cost" class="enterCost" value="" placeholder="Enter cost here">
+                    <br>
+
+                    <label for="expenses"><b> Select the date:</b></label>
+            <input type="date" name="date">
+            <br><br>
+                </div>
+            </div>
+
+
+            <button type="submit"> Submit </button>
+
+        </form>
+
+        <button type="submit"> <a href="/expenses/{{uname}}">View Current Total</a></button>
+
+        {{!-- <form action="/expenses/{{uname}}" method="get">
+
+            <button type="submit"><a href=""></a> View Total Weekly </button>
+            <br><br>
+
+        </form> --}}
         <br><br>
-        <div class="expenses">
-            <input type="radio" class="radio" name="expenses" value="travel"> Travel <br>
-            <input type="radio" class="radio" name="expenses" value="food"> Food <br>
-            <input type="radio" class="radio" name="expenses" value="toiletries"> Toiletries <br>
-            <input type="radio" class="radio" name="expenses" value="data"> Data <br>
-        </div>
-        <br><br>
 
-        <input size="30" type="text" name="cost" class="enterCost" value="" placeholder="Enter cost here">
-        <br><br>
+        <form action="/reset" method="get" class="reset">
 
-        <input type="date" name="date">
-        <br><br>
+            <button type="submit" name="RESET" class="reset"> reset</button>
 
-        <button type="submit"> Submit </button>
-
-        <br><br>
-
-    </form>
-
-    <button type="submit"> <a href="/expenses/{{uname}}">View Current Total</a></button>
-
-    {{!-- <form action="/expenses/{{uname}}" method="get">
-
-        <button type="submit"><a href=""></a> View Total Weekly </button>
-        <br><br>
-
-    </form> --}}
-
-
-    <form action="/reset" method="get" class="reset">
-
-        <button type="submit" name="RESET" class="reset"> reset</button>
-
-    </form>
+        </form>
+    </div>
 </body>

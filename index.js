@@ -56,26 +56,34 @@ app.post('/register', async function (req, res) {
     let user = req.body.firstname
     let lastname = req.body.lastname
     let email = req.body.email
+   console.log(email)
+        // let   results
+    //  if(email){
+  let results = await expenses_instance.duplicate(email)
 
+    //  }
+    //  console.log(results.length)
+            // let results = await expenses_instance.duplicate(email)
+
+    
+//   console.log(results.length + "dssdsdsdsdsdsds")
+if(results.length === 0){
     let password = uid();
+     req.flash('sukuna', "Hi, here is you code to login__" + password)
+    await expenses_instance.storedNames(user, lastname, email, password)
 
-    // if (email) {
-    //     await expenses_instance.duplicate(email)
-    //     req.flash('sukuna', 'Username already exists');
-       
+}else {req.flash('sukuna', 'Username already exists');}
+
+            // req.flash('sukuna', await expenses_instance.storedNames(user, lastname, email, password));
+
+
+    // if (await expenses_instance.duplicate(email) !== 0) {
     // }
-
-    if (user && lastname && email) {
-        await expenses_instance.storedNames(user, lastname, email, password)
-        req.flash('sukuna', "Hi, here is you code to login__" + password)
-    }
-
-    // if (user && lastname && email) {
-        
+    // else if (await expenses_instance.duplicate(email)){
+    //     let password = uid();
+    //     await expenses_instance.storedNames(user, lastname, email, password)
+    //     req.flash('sukuna', "Hi, here is you code to login__" + password)
     // }
-
-
-    // console.log(username)
 
     res.redirect('back')
 
@@ -102,23 +110,26 @@ app.get('/category/:theName', async function (req, res) {
 
 app.post('/category/:theName', async function (req, res) {
     let expenses1 = req.body.expenses
-    console.log(expenses1 + "gfgfgfgf")
+    // console.log(expenses1 + "gfgfgfgf")
     if (!expenses1) {
-        req.flash('error', "Please select your expense")
+        req.flash('error', "Please select your expense!")
+    }else if(!cost){
+        req.flash('error', "Please select your cost!")
     }
     let username = req.params.theName
-    console.log(username + "nnnnnnnn")
+    // console.log(username + "nnnnnnnn")
 
     let cost = req.body.cost
-    console.log(cost + "cdfdfddfd")
+    // console.log(cost + "cdfdfddfd")
 
     let date = req.body.date
     console.log(date)
 
-    // if (cost & date != null) {
+    if (cost && date && expenses1) {
     await expenses_instance.expenses_data(username, expenses1, cost, date)
     // console.log(await expenses_instance.expenses_data(username, expenses1, cost, date))
-    // }
+    req.flash('success', "Your expenses has been saved.")
+    }
 
 
     res.render('category', {
