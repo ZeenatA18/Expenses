@@ -4,7 +4,10 @@
 
 CREATE TABLE users_key(
     id SERIAL NOT NULL PRIMARY KEY,
-    firstname VARCHAR(30) NOT NULL
+    firstname VARCHAR(30) NOT NULL,
+    lastname VARCHAR(30) NOT NULL,
+    email VARCHAR(50) NOT NULL,
+    password VARCHAR(30) NOT NULL
    
 );
 

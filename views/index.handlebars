@@ -1,20 +1,19 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/css/styles.css">
-    <title>Expenses</title>
-</head>
-
 <body>
 
-    <form action="/register" method="post">
-        <div class="container" id="id_register">
+    <h2>Expenses App</h2>
 
-            <h2>Expenses App</h2>
+    {{#if messages.sukuna}}
+    <div class="errorMsg">{{messages.sukuna}}</div>
+    {{/if}}
+
+    <div class="sign_in">
+        <button onclick="document.getElementById('id_register').style.display='block'">Register</button>
+        <button onclick="document.getElementById('id_login').style.display='block'">Login</button>
+    </div>
+
+    <form action="/register" method="post">
+
+        <div class="register animate" id="id_register">
 
             <label for="firstname"><b>Firstname</b></label>
             <input type="text" placeholder="Enter Firstname" name="firstname" required>
@@ -25,16 +24,40 @@
             <label for="email"><b>Email</b></label>
             <input type="text" placeholder="Enter Email" name="email" required>
 
-            {{!-- <div>
-                <label for="psw"><b>Password</b></label>
-                <input type="password" placeholder="Enter Password" name="psw" required>
-            </div> --}}
-
-            <button type="submit" > Register </button>
+            <button type="submit"> Register </button>
 
         </div>
+
     </form>
 
-</body>
+    <form action="/login" method="post">
 
-</html>
+        <div class="login animate" id="id_login">
+
+            <label for="email"><b>Email</b></label>
+            <input type="text" placeholder="Enter Email" name="email" required>
+
+            <label for="psw"><b>Password</b></label>
+            <input type="password" placeholder="Enter Password" name="psw" required>
+
+            <button type="submit"> Login </button>
+
+        </div>
+
+    </form>
+
+    <script>
+        // Get the modal
+        var register = document.getElementById('id_register');
+        var login = document.getElementById('id_login');
+        // When the user clicks anywhere outside of the modal, close it
+        window.onclick = function (event) {
+            if (event.target == register) {
+                register.style.display = "none";
+            } else if (event.target == login) {
+                login.style.display = "none";
+            }
+        }
+    </script>
+
+</body>

@@ -25,9 +25,20 @@
                 </div> --}}
 
         <div id="idexpenses" class="viewExpenses">
-            {{!-- {{#each expenses}} --}}
-            <p> {{expenses}} </p>
-            {{!-- {{/each}} --}}
+            <table border="1">
+                <tr>
+                    <th>Category</th>
+                    <th>Cost</th>
+                    <th>Dates</th>
+                </tr>
+                {{#each expenses}}
+                <tr>
+                    <td>{{category}}</td>
+                    <td>{{cost}}</td>
+                    <td>{{sukuna dates}}</td>
+                </tr>
+                {{/each}}
+            </table>
         </div>
 
     </form>

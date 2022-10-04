@@ -1,16 +1,10 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/css/styles.css">
-    <title></title>
-</head>
-
 <body>
     <h1>Category</h1>
+
+    {{#if messages.error}}
+    <div class="errorMsg">{{messages.error}}</div>
+    {{/if}}
+
     <form action="/category/{{uname}}" method="post">
 
         <label for="expenses">Choose your expenses:</label>
@@ -35,22 +29,19 @@
 
     </form>
 
-  <button type="submit"> <a href="/expenses/{{uname}}">View Current Total</a></button> 
+    <button type="submit"> <a href="/expenses/{{uname}}">View Current Total</a></button>
 
-{{!-- <form action="/expenses/{{uname}}" method="get">
+    {{!-- <form action="/expenses/{{uname}}" method="get">
 
-<button type="submit"><a href=""></a> View Total Weekly </button>
+        <button type="submit"><a href=""></a> View Total Weekly </button>
         <br><br>
 
-</form> --}}
+    </form> --}}
 
 
-    <form action="/reset" method="get" class="reset"> 
-        
-            <button type="submit" name="RESET" class="reset"> reset</button>
-        
+    <form action="/reset" method="get" class="reset">
+
+        <button type="submit" name="RESET" class="reset"> reset</button>
+
     </form>
 </body>
-
-
-</html>
