@@ -112,23 +112,23 @@ app.post('/category/:theName', async function (req, res) {
     let expenses1 = req.body.expenses
     // console.log(expenses1 + "gfgfgfgf")
     let cost = req.body.cost
+    let date = req.body.date
+    let username = req.params.theName
 
     if (!expenses1) {
         req.flash('error', "Please select your expense!")
     }else if(!cost){
         req.flash('error', "Please select your cost!")
     }
-    let username = req.params.theName
     // console.log(username + "nnnnnnnn")
 
     // console.log(cost + "cdfdfddfd")
 
-    let date = req.body.date
-    console.log(date)
+    // console.log(date)
 
     if (cost && date && expenses1) {
     await expenses_instance.expenses_data(username, expenses1, cost, date)
-    // console.log(await expenses_instance.expenses_data(username, expenses1, cost, date))
+    console.log(await expenses_instance.expenses_data(username, expenses1, cost, date))
     req.flash('success', "Your expenses has been saved.")
     }
 
