@@ -111,6 +111,8 @@ app.get('/category/:theName', async function (req, res) {
 app.post('/category/:theName', async function (req, res) {
     let expenses1 = req.body.expenses
     // console.log(expenses1 + "gfgfgfgf")
+    let cost = req.body.cost
+
     if (!expenses1) {
         req.flash('error', "Please select your expense!")
     }else if(!cost){
@@ -119,7 +121,6 @@ app.post('/category/:theName', async function (req, res) {
     let username = req.params.theName
     // console.log(username + "nnnnnnnn")
 
-    let cost = req.body.cost
     // console.log(cost + "cdfdfddfd")
 
     let date = req.body.date
