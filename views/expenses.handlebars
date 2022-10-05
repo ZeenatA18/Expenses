@@ -14,9 +14,9 @@
 
     <form action="/user_expenses/{{uname}}" method="post">
 
-        <h2>Total for the week</h2>
+        <h2 style="text-align: center;">Total for the week</h2>
         <div class="user_data">
-            <p> {{output}} </p>
+            <p style="text-align:center ;"> {{output}} </p>
         </div>
 
          {{!-- <div class="container" style="background-color:#f1f1f1">
@@ -24,8 +24,8 @@
                         class="showbtn">Show Expenses</button>
                 </div> --}}
 
-        <div id="idexpenses" class="viewExpenses">
-            <table border="1">
+        <div id="idexpenses" class="viewExpenses animate">
+            <table style="padding: 5px; " border="3">
                 <tr>
                     <th>Category</th>
                     <th>Cost</th>
@@ -42,8 +42,9 @@
         </div>
 
     </form>
-
-<button onclick="document.getElementById('idexpenses').style.display='block'" style="width:auto;">Show Expenses</button>
+<div style="text-align: center;">
+<button onclick="document.getElementById('idexpenses').style.display='block'" style="width:auto;" >Show Expenses</button>
+</div>
 
 <script>
       

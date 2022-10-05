@@ -56,7 +56,7 @@ app.post('/register', async function (req, res) {
     let user = req.body.firstname
     let lastname = req.body.lastname
     let email = req.body.email
-   console.log(email)
+//    console.log(email)
         // let   results
     //  if(email){
   let results = await expenses_instance.duplicate(email)
@@ -110,7 +110,7 @@ app.get('/category/:theName', async function (req, res) {
 
 app.post('/category/:theName', async function (req, res) {
     let expenses1 = req.body.expenses
-    // console.log(expenses1 + "gfgfgfgf")
+    
     let cost = req.body.cost
     let date = req.body.date
     let username = req.params.theName
@@ -120,11 +120,7 @@ app.post('/category/:theName', async function (req, res) {
     }else if(!cost){
         req.flash('error', "Please select your cost!")
     }
-    // console.log(username + "nnnnnnnn")
-
-    // console.log(cost + "cdfdfddfd")
-
-    // console.log(date)
+   
 
     if (cost && date && expenses1) {
     await expenses_instance.expenses_data(username, expenses1, cost, date)

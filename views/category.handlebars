@@ -7,7 +7,7 @@
         }, 5000);
     </script>
     <div class="category_box">
-        <h1>Category</h1>
+        <h1>Welcome...</h1>
 
         {{!-- {{#if messages.error}} --}}
         <div class="errorMsg">{{messages.error}}</div>
@@ -29,14 +29,14 @@
                 </div>
 
                 <div class="cost">
-                    <label for="expenses"><b> Enter expenses cost:</b></label>
-                    <input  type="text" name="cost" class="enterCost" value="" placeholder="Enter cost here">
+                    <label for="expenses" style="margin-top: 15px;"><b> Enter expenses cost:</b></label>
+                    <input style="width: 40%; margin-left: 5%;" type="text" name="cost" class="enterCost" value="" placeholder="Enter cost here">
                     <br>
+                </div>
 
                     <label for="expenses"><b> Select the date:</b></label>
-            <input type="date" name="date">
+            <input type="date" name="date" style="margin-left: 8.8%;">
             <br><br>
-                </div>
             </div>
 
 
@@ -54,10 +54,10 @@
         </form> --}}
         <br><br>
 
-        <form action="/reset" method="get" class="reset">
+        {{!-- <form action="/reset" method="get" class="reset">
 
             <button type="submit" name="RESET" class="reset"> reset</button>
 
-        </form>
+        </form> --}}
     </div>
 </body>
