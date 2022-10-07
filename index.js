@@ -69,7 +69,7 @@ app.post('/register', async function (req, res) {
 //   console.log(results.length + "dssdsdsdsdsdsds")
 if(results.length === 0){
     let password = uid();
-     req.flash('sukuna', "Hi, here is you code to login__" + password)
+    req.flash('sukuna', "Hi, here is you code to login__" + password)
     await expenses_instance.storedNames(user, lastname, email, password)
 
 }else {req.flash('sukuna', 'Username already exists');}
@@ -91,7 +91,7 @@ if(results.length === 0){
 
 app.post('/login', async function (req, res) {
     let theMail = req.body.email;
-    let thePass = req.body.psw;
+    // let thePass = req.body.psw;
     // console.log(thePass);
     var username = await expenses_instance.user(theMail);
     var theName = username.firstname
