@@ -6,7 +6,19 @@
             if (document.querySelector(".successMsg")) document.querySelector(".successMsg").innerHTML = "";
         }, 5000);
     </script>
-    
+
+  <nav class="navbar">
+        <ul>
+            <div class="dropdown">
+                <div id="menu-bars" class="fas fa-bars" >
+            <div class="dropdown-content">
+                <a href="/expenses/{{uname}}" >View Expenses</a>
+            </div>
+           </div>
+           </div>
+        </ul>
+    </nav>
+
     <div class="category_box">
         <h1>Welcome...</h1>
 
@@ -31,13 +43,14 @@
 
                 <div class="cost">
                     <label for="expenses" style="margin-top: 15px;"><b> Enter expenses cost:</b></label>
-                    <input style="width: 40%; margin-left: 5%;" type="text" name="cost" class="enterCost" value="" placeholder="Enter cost here">
+                    <input style="width: 40%; margin-left: 5%;" type="text" name="cost" class="enterCost" value=""
+                        placeholder="Enter cost here">
                     <br>
                 </div>
 
-                    <label for="expenses"><b> Select the date:</b></label>
-            <input type="date" name="date" style="margin-left: 8.8%;">
-            <br><br>
+                <label for="expenses"><b> Select the date:</b></label>
+                <input type="date" name="date" style="margin-left: 8.8%;">
+                <br><br>
             </div>
 
 
@@ -45,7 +58,7 @@
 
         </form>
 
-        <button type="submit"> <a href="/expenses/{{uname}}">View Current Total</a></button>
+        {{!-- <button type="submit"> <a href="/expenses/{{uname}}">View Current Total</a></button> --}}
 
         {{!-- <form action="/expenses/{{uname}}" method="get">
 

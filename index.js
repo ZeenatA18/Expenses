@@ -69,7 +69,7 @@ app.post('/register', async function (req, res) {
 //   console.log(results.length + "dssdsdsdsdsdsds")
 if(results.length === 0){
     let password = uid();
-    req.flash('sukuna', "Hi, here is you code to login__" + password)
+    req.flash('sukuna', "Hi, here is you code to login -" + password)
     await expenses_instance.storedNames(user, lastname, email, password)
 
 }else {req.flash('sukuna', 'Username already exists');}
@@ -107,6 +107,12 @@ app.get('/category/:theName', async function (req, res) {
     })
 })
 
+// app.get('/expenses/:theName', async function (req, res) {
+   
+
+//     res.render('category')
+// })
+
 
 app.post('/category/:theName', async function (req, res) {
     let expenses1 = req.body.expenses
@@ -121,7 +127,10 @@ app.post('/category/:theName', async function (req, res) {
         req.flash('error', "Please select your cost!")
     }
    
-
+    // console.log("cost ===> ", cost);
+    // console.log("date ===> ", date);
+    // console.log("expenses1 ===> ", expenses1);
+    // console.log("username ===> ", username);
     if (cost && date && expenses1) {
     await expenses_instance.expenses_data(username, expenses1, cost, date)
     // console.log(await expenses_instance.expenses_data(username, expenses1, cost, date))
@@ -138,7 +147,7 @@ app.get('/expenses/:username', async function (req, res) {
     let username = req.params.username
     let total = await expenses_instance.total(username);
     let output = `${username} your current total expenses is R${total.sum}.`
-    console.log(total.sum)
+    // console.log(total.sum)
 
     let expenses = await expenses_instance.get_data(username);
     res.render('expenses', {
@@ -154,7 +163,44 @@ app.get('/expenses/:username', async function (req, res) {
 
 })
 
+app.get('/expenses/:username/:filter', async function (req, res) {
+    let username = req.params.username
+    let filter = req.params.filter
+    // get total for selected filter
+    let total = await expenses_instance.total_category(username, filter);
 
+    let output = `${username} your current total expenses is R${total.sum}.`
+    // console.log(total.sum)
+
+    // get data for category
+    let expenses = await expenses_instance.filtering(username, filter);
+
+    console.log(expenses);
+    
+    res.render('expenses', {
+        username,
+        output,
+        expenses,
+        helpers: {
+            sukuna: date => {
+                return new Date(date).toDateString()
+            }
+        }
+    })
+
+})
+
+// app.post('/expenses/filter', async function (req, res){
+//     let expense = req.body.category
+
+//     if(expense == 'food' || expense == 'data' || expense == 'travel' || expense == 'toiletries'){
+// filtering = await expenses_instance.filtering(expense);
+//     }
+
+//     res.render('expenses', {
+//         expenses: filtering
+//     })
+// })
 
 app.get('/reset', async function (req, res) {
 

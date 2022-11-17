@@ -1,38 +1,33 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/css/styles.css">
-    <title></title>
-</head>
-
 <body>
 
+    <nav class="navbar">
+        <ul>
+            <div class="dropdown">
+                <div id="menu-bars" class="fas fa-bars" style="margin: 50%;">
+                    <div class="dropdown-content">
+                        <a href="/category/{{username}}">Home</a>
+                    </div>
+                </div>
+            </div>
+        </ul>
+    </nav>
 
     <form action="/user_expenses/{{uname}}" method="post">
 
-        <h2 style="text-align: center;">Total for the week</h2>
+        <h2 style="text-align: center; padding:20px;">Total for the week</h2>
         <div class="user_data">
             <p style="text-align:center ;"> {{output}} </p>
         </div>
 
-         {{!-- <div class="container" style="background-color:#f1f1f1">
-                    <button type="button" onclick="document.getElementById('idexpenses').style.display='none'"
-                        class="showbtn">Show Expenses</button>
-                </div> --}}
-
         <div id="idexpenses" class="viewExpenses animate">
-            <table style="padding: 5px; " border="3">
+            <table style="padding: 30px; " border="3">
                 <tr>
                     <th>Category</th>
                     <th>Cost</th>
                     <th>Dates</th>
                 </tr>
                 {{#each expenses}}
-                <tr>
+                <tr border="3">
                     <td>{{category}}</td>
                     <td>{{cost}}</td>
                     <td>{{sukuna dates}}</td>
@@ -42,15 +37,32 @@
         </div>
 
     </form>
-<div style="text-align: center;">
-<button onclick="document.getElementById('idexpenses').style.display='block'" style="width:auto;" >Show Expenses</button>
-</div>
 
-<script>
-      
+    <div class="flex">
+
+        <div class="dropdown">
+            <button class="dropbtn">Filter your Expenses</button>
+            <div class="dropdown-content">
+                <a href="/expenses/{{username}}/travel">Travel</a>
+                <a href="/expenses/{{username}}/food">Food</a>
+                <a href="/expenses/{{username}}/toiletries">Toiletries</a>
+                <a href="/expenses/{{username}}/data">Data </a>
+                <a href="/expenses/{{username}}">All Expenses </a>
+            </div>
+        </div>
+
+        <div style="text-align: center;">
+            <button onclick="document.getElementById('idexpenses').style.display='block'" style="width:auto;">Show
+                Expenses</button>
+        </div>
+
+    </div>
+
+    <script>
+
         var stuff = document.getElementById('idexpenses');
 
-           window.onclick = function (event) {
+        window.onclick = function (event) {
             if (event.target == stuff) {
                 modal.style.display = "none";
             }
@@ -59,4 +71,6 @@
 
 </body>
 
-</html>
+{{!--
+
+</html> --}}
