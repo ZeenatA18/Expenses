@@ -1,6 +1,6 @@
 body { 
-  /* background-color: #cff8e9; */
-  background-image: url(i.png);
+  background-color: #cff8e9;
+  /* background-image: url(i.png); */
 } 
 
 input[type=text],
